@@ -55,11 +55,15 @@ body {
 
 .sidebar {
   background-color: var(--color-grey-dark-1);
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   flex: 0 0 18%; }
 
 .hotel-view {
-  background-color: red;
+  background-color: #fff;
+  flex-direction: column;
+  height: 80rem;
   flex: 1; }
 
 .logo {
@@ -138,3 +142,73 @@ body {
     background-color: #ccc; }
   .user-nav__user-username {
     margin-left: 0.8rem; }
+
+.side-nav {
+  margin-top: 3.5rem;
+  list-style: none;
+  color: #fff; }
+  .side-nav__item {
+    position: relative; }
+    .side-nav__item:not(:last-child) {
+      margin-bottom: 0.5rem; }
+    .side-nav__item--active {
+      background-color: var(--color-primary); }
+  .side-nav__item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0.3rem;
+    background-color: var(--color-primary);
+    transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s, background-color 0.1s;
+    transform: scale(0); }
+  .side-nav__item:hover::before, .side-nav__item--active::before {
+    transform: scale(1);
+    width: 100%; }
+  .side-nav__item:active::before {
+    background-color: var(--color-primary-light); }
+  .side-nav__icon {
+    width: 1.75rem;
+    height: 1.75rem;
+    margin-right: 2rem;
+    fill: currentColor; }
+  .side-nav__link, .side-nav__link:link, .side-nav__link:visited {
+    padding: 1.5rem 3rem;
+    color: var(--color-grey-light-1);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    transition: all 0.2s;
+    z-index: 1000;
+    position: relative; }
+
+.legal {
+  font-size: 1.2rem;
+  color: var(--color-grey-light-4);
+  text-align: center;
+  padding: 2.5rem; }
+
+.gallery {
+  display: flex; }
+  .gallery__photo {
+    width: 100%; }
+
+.overview {
+  display: flex;
+  align-items: center; }
+  .overview__heading {
+    font-size: 2.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    padding: 1.5rem 3rem;
+    font-weight: 300; }
+  .overview__icon {
+    flex: 0 0 50%; }
+    .overview__icon-star {
+      width: 1.75rem;
+      height: 1.75rem;
+      fill: var(--color-primary); }
