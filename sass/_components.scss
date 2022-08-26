@@ -184,16 +184,61 @@
 }
 
 .btn {
-  &__primary{
+  &__primary {
+    cursor: pointer;
     font-size: 1.5rem;
     font-weight: 300;
+    position: relative;
+    text-align: center;
     text-transform: uppercase;
-    border-radius: 10rem;
+    border-radius: 100px;
     border: none;
-    background-image: linear-gradient(to right,var(--color-primary-light),var(--color-primary-dark));
+    background-image: linear-gradient(
+      to right,
+      var(--color-primary-light),
+      var(--color-primary-dark)
+    );
     color: #fff;
-    padding: 2rem 7.5rem;
     margin-bottom: 3rem;
+    overflow: hidden;
+
+    & > * {
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      transition: all 0.2s;
+    }
+
+    &--visible {
+      padding: 2rem 7.5rem;
+    }
+
+    &--invisible {
+      padding: 2rem;
+      position: absolute;
+      top: -100%;
+      left: 10%;
+    }
+
+    &:hover {
+      background-image: linear-gradient(
+        to right,
+        var(--color-primary-dark),
+        var(--color-primary-light)
+      );
+    }
+
+    &:hover &--visible {
+      transform: translateY(100%);
+    }
+
+    &:hover &--invisible {
+      text-align: center;
+    }
+
+    &:focus{
+      animation: pulsate 1s infinite;
+    }
   }
 
   &__inline {
@@ -212,10 +257,10 @@
     &:hover {
       color: var(--color-grey-dark-1);
       border-bottom: 1px solid var(--color-grey-dark-1);
-      transition: all .5s;
+      transition: all 0.5s;
 
       span {
-        padding-left: .5rem;
+        padding-left: 0.5rem;
       }
     }
 
@@ -223,22 +268,22 @@
       outline: none;
       animation: pulsate 1s infinite;
     }
+  }
 
-    @keyframes pulsate {
-      0% {
-        transform: scale(1);
-        box-shadow: none;
-      }
+  @keyframes pulsate {
+    0% {
+      transform: scale(1);
+      box-shadow: none;
+    }
 
-      50% {
-        transform: scale(1.05);
-        box-shadow: var(--shadow-light);
-      }
+    50% {
+      transform: scale(1.05);
+      box-shadow: var(--color-shadow);
+    }
 
-      100% {
-        transform: scale(1);
-        box-shadow: none;
-      }
+    100% {
+      transform: scale(1);
+      box-shadow: none;
     }
   }
 }
@@ -363,7 +408,7 @@
     position: relative;
     overflow: hidden;
 
-    &::before{
+    &::before {
       content: "\201C";
       position: absolute;
       font-size: 20rem;
