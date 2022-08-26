@@ -13,7 +13,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: var(--color-grey-light-2);
+  border-bottom: var(--line);
 }
 
 .content {
@@ -30,8 +30,14 @@
 
 .hotel-view {
   background-color: #fff;
-  
   flex-direction: column;
-  height: 80rem;
   flex: 1;
+}
+
+.detail {
+  padding: 4.5rem;
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--color-grey-light-1);
+  border-bottom: var(--line);
 }

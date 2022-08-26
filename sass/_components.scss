@@ -186,7 +186,7 @@
 .overview {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid var(--color-grey-light-2);
+  border-bottom: var(--line);
 
   &__heading {
     font-size: 2.25rem;
@@ -232,12 +232,11 @@
         color: var(--color-grey-dark-1);
         text-decoration: underline 1px var(--color-grey-dark-1);
       }
-      
+
       &:focus {
         outline: none;
         animation: pulsate 1s infinite;
       }
-     
     }
 
     @keyframes pulsate {
@@ -248,7 +247,7 @@
 
       50% {
         transform: scale(1.05);
-        box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.25);
+        box-shadow: var(--shadow-light);
       }
 
       100% {
@@ -277,6 +276,89 @@
 
     &-count {
       font-size: 0.8rem;
+    }
+  }
+}
+
+.desc {
+  flex: 0 0 60%;
+  margin-right: 4.5rem;
+  background-color: #fff;
+  box-shadow: var(--shadow-light);
+  padding: 2rem;
+  font-size: 1.4rem;
+
+  ul {
+    font-size: inherit;
+    list-style: none;
+  }
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  border-top: var(--line);
+  border-bottom: var(--line);
+  margin: 3rem 0;
+  padding: 3rem 0;
+
+  &__item {
+    flex: 0 0 50%;
+    margin-bottom: 0.7rem;
+
+    &::before {
+      content: "";
+      width: 1rem;
+      height: 1rem;
+      margin-right: 0.7rem;
+      background-color: var(--color-primary);
+      -webkit-mask-image: url(../img/chevron-thin-right.svg);
+      -webkit-mask-size: cover;
+      mask-image: url(../img/chevron-thin-right.svg);
+      mask-size: cover;
+      display: inline-block;
+    }
+  }
+}
+
+.paragraph {
+  font-size: inherit;
+
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+}
+
+.reviews {
+  flex: 1;
+  background-color: #fff;
+  box-shadow: var(--shadow-light);
+}
+
+.recommend {
+  display: flex;
+  color: var(--color-grey-dark-3);
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.3rem;
+
+  &__count {
+    margin-right: auto;
+  }
+
+  &__friends {
+    display: flex;
+  }
+
+  &__photo {
+    box-sizing: content-box;
+    border-radius: 50%;
+    border: 3px solid white;
+    width: 4rem;
+    height: 4rem;
+
+    &:not(:last-child) {
+      margin-right: -2rem;
     }
   }
 }

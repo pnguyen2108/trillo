@@ -13,6 +13,8 @@
   --color-grey-dark-3: #999;
 
   --color-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+  --shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.06);
+  --line: 1px solid var(--color-grey-light-2);
 }
 
 * {
@@ -45,7 +47,6 @@ body {
   background-repeat: no-repeat;
   min-height: 100vh;
 }
-
 
 ::selection {
   background-color: var(--color-primary);
