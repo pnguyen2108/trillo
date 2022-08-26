@@ -45,3 +45,9 @@ body {
   background-repeat: no-repeat;
   min-height: 100vh;
 }
+
+
+::selection {
+  background-color: var(--color-primary);
+  color: #ccc;
+}

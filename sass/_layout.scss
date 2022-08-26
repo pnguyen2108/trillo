@@ -3,34 +3,35 @@
   max-width: 120rem;
   min-height: 50rem;
   background-color: var(--color-grey-light-1);
-  box-shadow:var(--color-shadow);
+  box-shadow: var(--color-shadow);
 }
 
 .header {
-    height: 7rem;
-    color: 1.4rem;
-    background-color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;  
-    border-bottom: var(--color-grey-light-2);
+  height: 7rem;
+  color: 1.4rem;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: var(--color-grey-light-2);
 }
 
 .content {
-    display: flex;
+  display: flex;
 }
 
 .sidebar {
-    background-color: var(--color-grey-dark-1);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;  
-    flex: 0 0 18%;
+  background-color: var(--color-grey-dark-1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 0 0 18%;
 }
 
 .hotel-view {
-    background-color: #fff;
-    flex-direction: column;
-    height: 80rem;
-    flex:1;
+  background-color: #fff;
+  
+  flex-direction: column;
+  height: 80rem;
+  flex: 1;
 }
