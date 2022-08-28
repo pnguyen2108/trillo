@@ -25,6 +25,9 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%; }
+  @media screen and (max-width: 1200px) {
+    html {
+      font-size: 50%; } }
 
 body {
   font-family: "Open Sans", sans-serif;
@@ -46,6 +49,10 @@ body {
   min-height: 50rem;
   background-color: var(--color-grey-light-1);
   box-shadow: var(--color-shadow); }
+  @media screen and (max-width: 1200px) {
+    .container {
+      margin: 0;
+      max-width: 100%; } }
 
 .header {
   height: 7rem;

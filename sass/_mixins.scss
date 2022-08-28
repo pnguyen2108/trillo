@@ -1,0 +1,21 @@
+$mobile: 300px;
+$tablet-portrait: 600px;
+$tablet-landscape: 1200px;
+
+@mixin mobile {
+  @media screen and (max-width: #{$mobile}) {
+    @content;
+  }
+}
+
+@mixin tablet-portrait {
+  @media screen and (min-width: #{$mobile +0.0625em}) and  (max-width: #{$tablet-portrait}) {
+    @content;
+  }
+}
+
+@mixin tablet-landscape {
+  @media screen and (max-width: #{$tablet-landscape}) {
+    @content;
+  }
+} ;

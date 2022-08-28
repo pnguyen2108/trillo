@@ -4,6 +4,11 @@
   min-height: 50rem;
   background-color: var(--color-grey-light-1);
   box-shadow: var(--color-shadow);
+
+  @include tablet-landscape {
+    margin: 0;
+    max-width: 100%;
+  }
 }
 
 .header {
