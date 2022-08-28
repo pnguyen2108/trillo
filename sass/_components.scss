@@ -4,7 +4,7 @@
 }
 
 .search {
-  display: flex;
+  order: 1;
   justify-content: center;
   flex: 0 0 50%;
 
@@ -28,6 +28,10 @@
       font-size: 1.4rem;
       color: var(--color-grey-dark-2);
     }
+
+    @include responsive(mobile-portrait,mobile-landscape) {
+      width: 100%;
+    }
   }
 
   &__input:focus + &__button {
@@ -44,12 +48,24 @@
     width: 2rem;
     fill: var(--color-grey-dark-3);
   }
+
+  @include responsive(mobile-portrait, mobile-landscape) {
+    flex: 0 0 100%;
+    margin-top: 2rem;
+    justify-content: center;
+    order: 2;
+  }
 }
 
 .user-nav {
+  order: 2;
   align-self: stretch;
   display: flex;
   justify-content: flex-end;
+
+  @include responsive(mobile-portrait, mobile-landscape) {
+    order: 1;
+  }
 
   & > * {
     cursor: pointer;
@@ -88,6 +104,11 @@
     padding: 0.3rem 0.4rem;
     font-size: 0.8rem;
     border-radius: 50%;
+
+    @include responsive(mobile-portrait, mobile-landscape) {
+      top: 0.5rem;
+      right: 2.3rem;
+    }
   }
 
   &__user {
@@ -114,10 +135,19 @@
 
     &:not(:last-child) {
       margin-bottom: 0.5rem;
+
+      @include responsive(mobile-portrait, mobile-landscape, tablet-portrait) {
+        margin: 0;
+        border-right: 0.1px solid var(--color-grey-light-1);
+      }
     }
 
     &--active {
       background-color: var(--color-primary);
+    }
+
+    @include responsive(mobile-portrait, mobile-landscape) {
+      flex: 1;
     }
   }
 
@@ -148,6 +178,18 @@
     height: 1.75rem;
     margin-right: 2rem;
     fill: currentColor;
+
+    @include responsive(mobile-portrait) {
+      width: 1.5rem;
+      height: 1.5rem;
+      margin: 0;
+      margin-bottom: 0.7rem;
+    }
+
+    @include responsive(mobile-landscape) {
+      margin: 0;
+      margin-bottom: 0.7rem;
+    }
   }
 
   &__link,
@@ -160,10 +202,32 @@
     font-size: 1.4rem;
     display: flex;
     align-items: center;
-    padding: 1.5rem 3rem;
     transition: all 0.2s;
     z-index: 1000;
     position: relative;
+
+    @include responsive(mobile-portrait,mobile-landscape) {
+      padding: 1.5rem 0.5rem;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @include responsive(mobile-landscape) {
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  @include responsive(tablet-portrait) {
+    display: flex;
+    margin: 0;
+    text-align: center;
+    justify-content: center;
+  }
+
+  @include responsive(mobile-portrait, mobile-landscape) {
+    display: flex;
+    margin: 0;
   }
 }
 
@@ -172,6 +236,10 @@
   color: var(--color-grey-light-4);
   text-align: center;
   padding: 2.5rem;
+
+  @include responsive(mobile-portrait, mobile-landscape, tablet-portrait) {
+    display: none;
+  }
 }
 
 .gallery {
@@ -236,7 +304,7 @@
       text-align: center;
     }
 
-    &:focus{
+    &:focus {
       animation: pulsate 1s infinite;
     }
   }
@@ -290,8 +358,13 @@
 
 .overview {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   border-bottom: var(--line);
+
+  @include responsive(mobile-portrait) {
+    display: flex;
+  }
 
   &__heading {
     font-size: 2.25rem;
@@ -352,6 +425,12 @@
   padding: 2rem;
   font-size: 1.4rem;
 
+  @include responsive(mobile-portrait, mobile-landscape) {
+    margin: 0;
+    margin-bottom: 3rem;
+    max-width: 100%;
+  }
+
   ul {
     font-size: inherit;
     list-style: none;
@@ -369,6 +448,10 @@
   &__item {
     flex: 0 0 50%;
     margin-bottom: 0.7rem;
+
+    @include responsive(mobile-portrait) {
+      flex: 0 0 100%;
+    }
 
     &::before {
       content: "";
@@ -408,13 +491,19 @@
     position: relative;
     overflow: hidden;
 
+    @include responsive(mobile-portrait, mobile-landscape) {
+      margin-bottom: 3rem;
+      padding: 2rem;
+      width: 100%;
+    }
+
     &::before {
       content: "\201C";
       position: absolute;
       font-size: 20rem;
       top: -2.75rem;
       left: -1rem;
-      color: var(--color-grey-light-2);
+      color: var(--color-grey-light-3);
       font-family: sans-serif;
       line-height: 1;
       z-index: 1;
@@ -503,5 +592,9 @@
     font-weight: 300;
     text-transform: uppercase;
     margin-bottom: 2.5rem;
+
+    @include responsive(mobile-portrait) {
+      text-align: center;
+    }
   }
 }

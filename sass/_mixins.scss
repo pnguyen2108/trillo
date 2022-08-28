@@ -1,21 +1,56 @@
-$mobile: 300px;
-$tablet-portrait: 600px;
+$mobile-portrait: 420px;
+$mobile-landscape: 700px;
+$tablet-portrait: 900px;
 $tablet-landscape: 1200px;
 
-@mixin mobile {
-  @media screen and (max-width: #{$mobile}) {
+@mixin mobile-portrait {
+  @media screen and (max-width: #{$mobile-portrait}) {
+    @content;
+  }
+}
+
+@mixin mobile-landscape {
+  @media screen and (min-width: #{$mobile-portrait + 1px}) and (max-width: #{$mobile-landscape}) {
     @content;
   }
 }
 
 @mixin tablet-portrait {
-  @media screen and (min-width: #{$mobile +0.0625em}) and  (max-width: #{$tablet-portrait}) {
+  @media screen and (min-width: #{$mobile-landscape + 1px}) and (max-width: #{$tablet-portrait}) {
     @content;
   }
 }
 
 @mixin tablet-landscape {
-  @media screen and (max-width: #{$tablet-landscape}) {
+  @media screen and (min-width: #{$tablet-portrait + 1px}) and (max-width: #{$tablet-landscape}) {
     @content;
   }
-} ;
+}
+
+@mixin responsive($keys...) {
+  @each $key in $keys {
+    @if ($key == mobile-portrait) {
+      @include mobile-portrait {
+        @content;
+      }
+    }
+
+    @if ($key == mobile-landscape) {
+      @include mobile-landscape {
+        @content;
+      }
+    }
+
+    @if ($key == tablet-portrait) {
+      @include tablet-portrait {
+        @content;
+      }
+    }
+
+    @if ($key == tablet-landscape) {
+      @include tablet-landscape {
+        @content;
+      }
+    }
+  }
+}
